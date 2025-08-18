@@ -184,6 +184,15 @@
 
             tap-ms = <20>;
         };
+
+        mouse_scroll: mouse_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
+            label = "MOUSE_SCROLL";
+        };
     };
 
     keymap {
@@ -203,7 +212,7 @@
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 INT_MUHENKAN  &lt 2 SPACE  &lt 3 INT_HENKAN                   &kp BACKSPACE  &kp ENTER                                 &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         layer_1 {
@@ -214,13 +223,13 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp ESCAPE      &kp CAPS      &trans        &trans            &trans                                          &trans         &trans     &moA    &moB  &moC
-&kp TAB         &trans        &trans        &trans            &trans       &trans                &trans       &trans         &trans     &trans  &moD  &moE
-&kp LEFT_SHIFT  &kp CAPSLOCK  &trans        &trans            &trans       &trans                &kp JP_EISU  &kp JP_KANA    &trans     &moF    &moG  &moH
-&trans          &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN                 &kp BACKSPACE  &kp ENTER                      &kp DEL
+&kp ESCAPE  &trans        &trans  &trans            &trans                                     &trans         &trans     &moA    &moB  &moC
+&kp TAB     &trans        &trans  &trans            &trans       &trans                &trans  &trans         &trans     &trans  &moD  &moE
+&trans      &kp CAPSLOCK  &trans  &trans            &trans       &trans                &trans  &trans         &trans     &moF    &moG  &moH
+&trans      &trans        &trans  &lt 1 INT_HENKAN  &lt 2 SPACE  &lt 3 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                      &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         layer_2 {
@@ -231,13 +240,13 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp N1          &mo2          &kp N3        &kp N4            &kp N5                                     &mo6           &mo7       &mo8            &mo9            &mo0
-&kp D           &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans          &kp UP_ARROW    &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                                                   &kp DEL
+&kp N1  &mo2    &kp N3  &kp N4            &kp N5                                     &mo6           &mo7       &mo8            &mo9            &mo0
+&trans  &trans  &trans  &trans            &trans       &trans                &trans  &trans         &trans     &trans          &kp UP_ARROW    &trans
+&trans  &trans  &trans  &trans            &trans       &trans                &trans  &trans         &trans     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&trans  &trans  &trans  &lt 4 INT_HENKAN  &lt 2 SPACE  &lt 5 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                                                   &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         layer_3 {
@@ -248,13 +257,13 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp F1          &kp F2        &kp F3        &kp F4            &kp F5                                     &kp F6         &kp F7     &kp F8  &kp F9    &kp F10
-&kp F11         &kp F12       &trans        &mkp MB1          &mkp MB2     &trans                &trans  &trans         &trans     &trans  &kp HOME  &kp PAGE_UP
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans  &kp END   &kp PAGE_DOWN
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 INT_HENKAN  &lt 2 SPACE  &lt 3 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                                   &kp DEL
+&kp F1   &kp F2   &kp F3  &kp F4            &kp F5                                     &kp F6  &kp F7  &kp F8  &kp F9    &kp F10
+&kp F11  &kp F12  &trans  &mkp MB1          &mkp MB2     &trans                &trans  &trans  &trans  &trans  &kp HOME  &kp PAGE_UP
+&trans   &trans   &trans  &trans            &trans       &trans                &trans  &trans  &trans  &trans  &kp END   &kp PAGE_DOWN
+&trans   &trans   &trans  &lt 1 INT_HENKAN  &lt 2 SPACE  &lt 3 INT_MUHENKAN            &trans  &trans                                   &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         layer_4 {
@@ -271,7 +280,7 @@
 &kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE     &kp INT_MUHENKAN                     &kp BACKSPACE    &kp ENTER                                                        &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         SCROLL {
@@ -288,7 +297,7 @@
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE  &kp INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                          &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
 
         MOUSE {
@@ -299,7 +308,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                              &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&mouse_scroll>;
         };
     };
 };
